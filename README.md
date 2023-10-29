@@ -1,2 +1,2 @@
 # Machine Learning
-Repo of Machine Learning and Trustworthy Artificial Intelligence with some code examples and notes.
+This repository contains machine learning projects and notebooks for the courses of Machine Learning and Data Analysis and Trustworthy Artificial Intelligence. Feel free to checkout and explore.
