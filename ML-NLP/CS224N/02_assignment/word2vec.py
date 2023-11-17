@@ -60,12 +60,21 @@ def naiveSoftmaxLossAndGradient(
     to integer overflow.
     """
 
-    # conditional probability distribution p(O = o | C = c)
-    conditionalProb = softmax(np.dot(outsideVectors, centerWordVec))
+    # compute the (predicted) conditional probabilities of all words in
+    # the vocabulary given the center word -> p(O = o | C = c)
+    y_hat = softmax(np.dot(outsideVectors, centerWordVec))
 
-    # for a single pair of words c and o, the loss is given by:
+    # the loss is computed using the negative log probability of the correct outside word
     # J(v_c, o, U) = -log P(O = o | C = c)
-    loss = -np.log(conditionalProb[outsideWordIdx])
+    loss = -np.log(y_hat[outsideWordIdx])
+
+    # true probability distribution given the correct center word
+    # [..., 0, outsideWordIdx=1, 0, ...]
+    y = np.zeros_like(y_hat)
+    y[outsideWordIdx] = 1
+
+    gradCenterVec = np.dot(y_hat - y, outsideVectors)
+    gradOutsideVecs = np.outer(y_hat - y, centerWordVec)
 
     return loss, gradCenterVec, gradOutsideVecs
 
