@@ -1,0 +1,3 @@
+[submodule "submodules/forked-repo"]
+	path = submodules/forked-repo
+	url = https://github.com/nlp-with-transformers/notebooks.git
