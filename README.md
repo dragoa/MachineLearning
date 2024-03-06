@@ -16,16 +16,15 @@ Welcome to my Machine Learning repository, where you can find learning materials
 
 These are just two examples of the notes you will find plus some notebooks :)
 
-<!-- Side-by-side images with centered alignment -->
 <div style="display: flex; justify-content: center;">
     <!-- First image with caption -->
     <div style="margin-right: 10px;">
-        <img src=".imgs/mcc.jpg" alt="MultiClass Classification screenshot from notes">
+        <img src=".imgs/mcc.jpg" alt="MultiClass Classification screenshot from notes" style="transform: scale(0.9);">
         <p style="text-align: center;">MultiClass Classification</p> <!-- Caption for the first image -->
     </div>
     <!-- Second image with caption -->
     <div style="margin-left: 10px;">
-        <img src=".imgs/kernels.jpg" alt="Kernels screenshot from notes">
+        <img src=".imgs/kernels.jpg" alt="Kernels screenshot from notes" style="transform: scale(0.9);">
         <p style="text-align: center;">Kernels</p> <!-- Caption for the second image -->
     </div>
 </div>
