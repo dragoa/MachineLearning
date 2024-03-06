@@ -20,12 +20,12 @@ These are just two examples of the notes you will find plus some notebooks :)
 <div style="display: flex; justify-content: center;">
     <!-- First image with caption -->
     <div style="margin-right: 10px;">
-        <img src=".imgs/mcc.jpg" alt="MultiClass Classification screenshot from notes" width="300" height="500">
+        <img src=".imgs/mcc.jpg" alt="MultiClass Classification screenshot from notes">
         <p style="text-align: center;">MultiClass Classification</p> <!-- Caption for the first image -->
     </div>
     <!-- Second image with caption -->
     <div style="margin-left: 10px;">
-        <img src=".imgs/kernels.jpg" alt="Kernels screenshot from notes" width="300" height="500">
+        <img src=".imgs/kernels.jpg" alt="Kernels screenshot from notes">
         <p style="text-align: center;">Kernels</p> <!-- Caption for the second image -->
     </div>
 </div>
