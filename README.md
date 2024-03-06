@@ -1,13 +1,31 @@
-# Machine Learning Repository
+# Machine Learning
 
-Welcome to my Machine Learning repository, where I've curated learning materials, for my studies, from various courses.
+Welcome to my Machine Learning repository, where you can find learning materials both from my studies and from various online courses.
 
-## Folder Structure
+## Folders Structure
 
-- **`ML/`**: Primary directory containing notes and notebooks from the "**Machine Learning and Data Analysis**" course at UNIGE.
+- **`DL/`**: Directory containing notes and notebooks from the "**Machine Learning and Data Analysis**" and "**Deep Learning**" courses at UNIGE.
 
-- **`ML-NLP/`**: Folder dedicated to **Natural Language Processing** studies.
-  - [CS224N](ML-NLP/CS224N): Natural Language Processing with Deep Learning at Stanford University.
-  - [SequenceModels](ML-NLP/C5-SequenceModels): Sequence Models course by Andrew Ng on Coursera.
+- **`ML/`**: Directory containing notes and notebooks from the "**Machine Learning and Data Analysis**" course at UNIGE.
+
+- **`NLP/`**: Directory dedicated to **Natural Language Processing**.
 
 - **`TAI/`**: Notebooks used during the "**Trustworthy Artificial Intelligence**" course at UNIGE.
+
+## What You'll Discover
+
+These are just two examples of the notes you will find plus some notebooks :)
+
+<!-- Side-by-side images with centered alignment -->
+<div style="display: flex; justify-content: center;">
+    <!-- First image with caption -->
+    <div style="margin-right: 10px;">
+        <img src=".imgs/mcc.jpg" alt="MultiClass Classification screenshot from notes" width="300" height="500">
+        <p style="text-align: center;">MultiClass Classification</p> <!-- Caption for the first image -->
+    </div>
+    <!-- Second image with caption -->
+    <div style="margin-left: 10px;">
+        <img src=".imgs/kernels.jpg" alt="Kernels screenshot from notes" width="300" height="500">
+        <p style="text-align: center;">Kernels</p> <!-- Caption for the second image -->
+    </div>
+</div>
