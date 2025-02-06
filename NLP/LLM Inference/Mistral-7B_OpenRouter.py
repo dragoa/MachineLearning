@@ -7,6 +7,28 @@ from openai import OpenAI
 
 READ_FILES = True
 
+json_schema = [
+  {
+    "categoria": "Economia",
+    "descrizione": "Fatturato annuo",
+    "valore": 35000000,
+    "unita": "EUR"
+  },
+  {
+    "categoria": "Turismo",
+    "descrizione": "Presenze turistiche",
+    "valore": 105000000,
+    "unita": "persone"
+  },
+  {
+    "categoria": "Demografia",
+    "descrizione": "Popolazione totale",
+    "valore": 60000000,
+    "unita": "persone"
+  }
+]
+
+
 def read_file(file_path):
   try:
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -56,28 +78,34 @@ def main():
       messages=[
         {
           "role": "user",
-          "content": f"Trova nel testo fornito ed estrai tutti i valori numerici rilevanti. Organizzali in una tabella con due colonne: 'descrizione' e 'valore'. Restituisci SOLAMENTE il risultato in un formato JSON valido. Rispondi in ITALIANO. NON AGGIUNGERE COMMENTI O TESTO DI ALTRO TIPO NELLA TUA RISPOSTA, FORNISCIMI SOLO IL JSON. Testo da analizzare: {content}"
+          "content": f"""
+              Analizza il testo fornito ed estrai tutti i valori numerici rilevanti, inclusi quelli legati a quantità, misure, statistiche, percentuali, date e somme di denaro. 
+              Organizza i dati in una tabella con due colonne: 'descrizione' e 'valore'. Assicurati che ogni descrizione sia chiara e rappresentativa del dato numerico estratto. 
+
+              Restituisci SOLO il risultato in formato JSON valido, seguendo esattamente questa struttura:
+              {json_schema}
+
+              Rispondi esclusivamente in ITALIANO. NON AGGIUNGERE COMMENTI, TESTO DI ALTRO TIPO O SPIEGAZIONI, FORNISCI SOLO IL JSON. 
+
+              Testo da analizzare: {content}
+              """
         }
       ]
     )
-    text = completion.choices[0].message.content
+    text = completion.choices[0].message.content.strip()
     print(text)
 
-    # Regular expression to extract JSON content
-    match = re.search(r"```json\s*(\[.*?])\s*```", text, re.DOTALL)
-
-    if match:
-      json_text = match.group(1)  # Extract JSON content
-      data = json.loads(json_text)  # Convert to Python dictionary
-      print("Extracted JSON:", data)
+    try:
+      data = json.loads(text)
+      print("The LLM model output a valid JSON :)")
 
       filename = f"extractd_data{i}.json"
-
       # Save JSON to a file
       with open(filename, "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
       print(f"JSON file saved as {filename}")
-    else:
-      print("No JSON found in the text.")
+
+    except json.JSONDecodeError as e:
+      print(f"The LLM model output an invalid JSON :( Please try again: {e}")
 
 main()
