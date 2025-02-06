@@ -79,7 +79,7 @@ def main():
         {
           "role": "user",
           "content": f"""
-              Analizza il testo fornito ed estrai TUTTI i valori numerici rilevanti, inclusi quelli legati a quantità, misure, statistiche, percentuali, date e somme di denaro. 
+              Analizza il testo fornito ed estrai TUTTI I PRINCIPALI valori numerici, inclusi quelli legati a quantità, misure, statistiche, percentuali, date e somme di denaro. 
               Organizza i dati in una tabella con due colonne: 'descrizione' e 'valore'. Assicurati che ogni descrizione sia chiara e rappresentativa del dato numerico estratto. 
 
               Restituisci SOLO il risultato in formato JSON valido, seguendo esattamente questa struttura:
