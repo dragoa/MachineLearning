@@ -28,3 +28,6 @@ These are just two examples of the notes you will find plus some notebooks :)
         <p style="text-align: center;">Kernels</p> <!-- Caption for the second image -->
     </div>
 </div>
+
+## Quick view
+- **`Data Management in PyTorch/`**: [Module 3](DeepLearning%20AI/%5BSPZ%5D%20PyTorch%20for%20Deep%20Learning/Module%203/)
