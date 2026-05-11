@@ -1,8 +1,7 @@
-# 📘 Module 3 Resources
+# 📘 Data Management in PyTorch Resources
 
 Welcome to Module 3 resources. This README compiles all lecture materials, references, and external learning links related to data-centric AI, dataset handling, preprocessing, and augmentation.
 
----
 
 ## 📌 Table of Contents
 - [Learning from Data](#-learning-from-data)
@@ -10,12 +9,9 @@ Welcome to Module 3 resources. This README compiles all lecture materials, refer
 - [Oxford Flowers 102 Dataset](#-oxford-flowers-102-dataset)
 - [Preprocessing & Transform Pipelines](#-preprocessing--transform-pipelines)
 - [Data Augmentation & Robustness](#-data-augmentation--robustness)
-
----
+  
 
 ## 📚 Learning from Data
-
-### 📌 Data-Centric AI Overview
 
 - MIT CSAIL - Data-Centric AI (overview of model-centric vs data-centric workflows)  
   [https://datacentricai.org/](https://dcai.csail.mit.edu/2024/data-centric-model-centric/)
@@ -26,7 +22,6 @@ Welcome to Module 3 resources. This README compiles all lecture materials, refer
 - ArXiv Survey - Data-Centric Artificial Intelligence  
   [https://arxiv.org/](https://arxiv.org/html/2212.11854v4)
 
----
 
 ## 🧩 Data Organization & Leakage Prevention
 
@@ -36,7 +31,6 @@ Welcome to Module 3 resources. This README compiles all lecture materials, refer
 - MachineLearningMastery - Data Leakage in Machine Learning  
   [https://machinelearningmastery.com/data-leakage-machine-learning/](https://machinelearningmastery.com/data-leakage-machine-learning/)
 
----
 
 ## 🌸 Oxford Flowers 102 Dataset
 
@@ -49,7 +43,6 @@ Welcome to Module 3 resources. This README compiles all lecture materials, refer
 - VGG Research Group Overview  
   [https://www.robots.ox.ac.uk/~vgg/](https://www.researchgate.net/publication/221551861_Automated_Flower_Classification_over_a_Large_Number_of_Classes)
 
----
 
 ## 🛠️ Preprocessing & Transform Pipelines
 
@@ -63,7 +56,6 @@ Welcome to Module 3 resources. This README compiles all lecture materials, refer
 - Voxel51 Blog - Image Preprocessing Best Practices  
   https://voxel51.com/blog/image-preprocessing-best-practices-to-optimize-your-ai-workflows
 
----
 
 ## 🔄 Data Augmentation & Robustness
 
@@ -73,10 +65,9 @@ Welcome to Module 3 resources. This README compiles all lecture materials, refer
 - Stanford AI Lab blog - Automating Data Augmentation
   https://ai.stanford.edu/blog/data-augmentation/
 
-- Albumentations Tutorial (YouTube Search)  
-  https://www.youtube.com/results?search_query=albumentations+tutorial
+- Albumentations Tutorial
+  https://www.youtube.com/watch?v=rAdLwKJBvPM
 
----
 
 ## 🚀 Summary
 
