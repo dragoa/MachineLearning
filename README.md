@@ -30,4 +30,4 @@ These are just two examples of the notes you will find plus some notebooks :)
 </div>
 
 ## Quick view
-- **`Data Management in PyTorch/`**: [Module 3](DeepLearning%20AI/%5BSPZ%5D%20PyTorch%20for%20Deep%20Learning/Module%203/)
+- **`Data Management in PyTorch/`**: [Custom Dataset, Data Loading and Data Augmentation](DeepLearning%20AI/%5BSPZ%5D%20PyTorch%20for%20Deep%20Learning/Module%203/)
