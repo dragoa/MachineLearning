@@ -17,23 +17,23 @@ Welcome to Module 3 resources. This README compiles all lecture materials, refer
 
 ### 📌 Data-Centric AI Overview
 
-- MIT CSAIL — Data-Centric AI (overview of model-centric vs data-centric workflows)  
+- MIT CSAIL - Data-Centric AI (overview of model-centric vs data-centric workflows)  
   [https://datacentricai.org/](https://dcai.csail.mit.edu/2024/data-centric-model-centric/)
 
-- CACM — *The Principles of Data-Centric AI*  
+- CACM - *The Principles of Data-Centric AI*  
   [https://cacm.acm.org/](https://cacm.acm.org/research/the-principles-of-data-centric-ai/)
 
-- ArXiv Survey — Data-Centric Artificial Intelligence  
+- ArXiv Survey - Data-Centric Artificial Intelligence  
   [https://arxiv.org/](https://arxiv.org/html/2212.11854v4)
 
 ---
 
 ## 🧩 Data Organization & Leakage Prevention
 
-- Scikit-learn — Cross-validation guide  
+- Scikit-learn - Cross-validation guide  
   https://scikit-learn.org/stable/modules/cross_validation.html
 
-- MachineLearningMastery — Data Leakage in Machine Learning  
+- MachineLearningMastery - Data Leakage in Machine Learning  
   [https://machinelearningmastery.com/data-leakage-machine-learning/](https://machinelearningmastery.com/data-leakage-machine-learning/)
 
 ---
@@ -53,36 +53,28 @@ Welcome to Module 3 resources. This README compiles all lecture materials, refer
 
 ## 🛠️ Preprocessing & Transform Pipelines
 
-- CS231n Stanford — Data Preprocessing Notes  
+- CS231n Stanford - Data Preprocessing Notes  
   https://cs231n.stanford.edu/
   https://cs231n.stanford.edu/slides/2023/lecture_7.pdf
 
-- Sebastian Raschka — Feature Scaling & Normalization  
+- Sebastian Raschka - Feature Scaling & Normalization  
   https://sebastianraschka.com/Articles/2014_about_feature_scaling.html
 
-- Voxel51 Blog — Image Preprocessing Best Practices  
+- Voxel51 Blog - Image Preprocessing Best Practices  
   https://voxel51.com/blog/image-preprocessing-best-practices-to-optimize-your-ai-workflows
 
 ---
 
 ## 🔄 Data Augmentation & Robustness
 
-- Roboflow Blog — Data Augmentation Guide  
+- Roboflow Blog - Data Augmentation Guide  
   https://blog.roboflow.com/data-augmentation/
 
-- Google AI Blog — AutoAugment  
-  https://ai.googleblog.com/2018/06/autoaugment-learning-augmentation.html
+- Stanford AI Lab blog - Automating Data Augmentation
+  https://ai.stanford.edu/blog/data-augmentation/
 
 - Albumentations Tutorial (YouTube Search)  
   https://www.youtube.com/results?search_query=albumentations+tutorial
-
----
-
-## ⚠️ Notes
-
-- Ensure consistent preprocessing between training, validation, and testing to avoid data leakage.
-- Always verify dataset splits before training models.
-- Data quality is often more important than model complexity in modern ML workflows.
 
 ---
 
