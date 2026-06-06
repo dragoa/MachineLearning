@@ -1,18 +1,6 @@
-# 📘 Data Management in PyTorch Resources
+**Module 3 Resources**
 
-Welcome to Module 3 resources. This README compiles all lecture materials, references, and external learning links related to data-centric AI, dataset handling, preprocessing, and augmentation.
-
-
-## 📌 Table of Contents
-- [Learning from Data](#-learning-from-data)
-- [Data Organization & Leakage Prevention](#-data-organization--leakage-prevention)
-- [Oxford Flowers 102 Dataset](#-oxford-flowers-102-dataset)
-- [Preprocessing & Transform Pipelines](#-preprocessing--transform-pipelines)
-- [Data Augmentation & Robustness](#-data-augmentation--robustness)
-  
-
-## 📚 Learning from Data
-
+**Learning from Data**
 - MIT CSAIL - Data-Centric AI (overview of model-centric vs data-centric workflows)  
   [https://datacentricai.org/](https://dcai.csail.mit.edu/2024/data-centric-model-centric/)
 
@@ -23,8 +11,7 @@ Welcome to Module 3 resources. This README compiles all lecture materials, refer
   [https://arxiv.org/](https://arxiv.org/html/2212.11854v4)
 
 
-## 🧩 Data Organization & Leakage Prevention
-
+**Data Organization & Leakage Prevention**
 - Scikit-learn - Cross-validation guide  
   https://scikit-learn.org/stable/modules/cross_validation.html
 
@@ -32,7 +19,7 @@ Welcome to Module 3 resources. This README compiles all lecture materials, refer
   [https://machinelearningmastery.com/data-leakage-machine-learning/](https://machinelearningmastery.com/data-leakage-machine-learning/)
 
 
-## 🌸 Oxford Flowers 102 Dataset
+**Oxford Flowers 102 Dataset**
 
 - Official VGG Dataset Page  
   https://www.robots.ox.ac.uk/~vgg/data/flowers/102/
@@ -44,7 +31,7 @@ Welcome to Module 3 resources. This README compiles all lecture materials, refer
   [https://www.robots.ox.ac.uk/~vgg/](https://www.researchgate.net/publication/221551861_Automated_Flower_Classification_over_a_Large_Number_of_Classes)
 
 
-## 🛠️ Preprocessing & Transform Pipelines
+**Preprocessing & Transform Pipelines**
 
 - CS231n Stanford - Data Preprocessing Notes  
   https://cs231n.stanford.edu/
@@ -57,7 +44,7 @@ Welcome to Module 3 resources. This README compiles all lecture materials, refer
   https://voxel51.com/blog/image-preprocessing-best-practices-to-optimize-your-ai-workflows
 
 
-## 🔄 Data Augmentation & Robustness
+**Data Augmentation & Robustness**
 
 - Roboflow Blog - Data Augmentation Guide  
   https://blog.roboflow.com/data-augmentation/
@@ -67,12 +54,3 @@ Welcome to Module 3 resources. This README compiles all lecture materials, refer
 
 - Albumentations Tutorial
   https://www.youtube.com/watch?v=rAdLwKJBvPM
-
-
-## 🚀 Summary
-
-This module focuses on:
-- Data-centric AI principles
-- Proper dataset handling and validation
-- Image preprocessing pipelines
-- Robust augmentation strategies
