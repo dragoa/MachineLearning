@@ -253,11 +253,11 @@ Neurons can learn shortcuts instead of robust features. Classic example: a model
 **Dropout in action (0.5 = 50% drop rate):**
 ```
 Without Dropout:              With Dropout (training):
-┌───────────────────────┐          ┌───────────────────────┐
+┌───────────────────────┐       ┌───────────────────────┐
 │ ⚫ ⚫ ⚫ ⚫ ⚫ ⚫  │          │ ⚫ ⭕ ⚫ ⭕ ⚫ ⭕  │
 │ ⚫ ⚫ ⚫ ⚫ ⚫ ⚫  │          │ ⭕ ⚫ ⭕ ⚫ ⭕ ⚫  │
 │ ⚫ ⚫ ⚫ ⚫ ⚫ ⚫  │   →      │ ⚫ ⭕ ⚫ ⭕ ⚫ ⭕  │
-└───────────────────────┘          └───────────────────────┘
+└───────────────────────┘       └───────────────────────┘
 All neurons active           ⚫ = active
                              ⭕ = dropped (zeroed)
 
