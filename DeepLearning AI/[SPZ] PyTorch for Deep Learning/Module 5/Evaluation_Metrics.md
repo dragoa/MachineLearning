@@ -3,51 +3,42 @@
 > Notes from *PyTorch for Deep Learning Professional Certificate* · DeepLearning.AI  
 > Module 1: Evaluation Metrics & Optimization
 
----
+## 1. What Is Optimization?
 
-## Table of Contents
+At its core, optimization is about **finding the best possible value of a function** — a maximum or a minimum.
 
-1. [Evaluation Metrics](#1-evaluation-metrics)
-2. [Introduction to Optimization](#2-introduction-to-optimization) *(coming soon)*
-3. [Learning Rate Schedulers](#3-learning-rate-schedulers) *(coming soon)*
-4. [Optimizers](#4-optimizers) *(coming soon)*
-5. [Batch Size & Training Dynamics](#5-batch-size--training-dynamics) *(coming soon)*
-6. [Early Stopping](#6-early-stopping) *(coming soon)*
-7. [Search Strategies (Grid, Random, Optuna)](#7-search-strategies) *(coming soon)*
+In machine learning, this usually means adjusting parameters or architecture to improve some objective metric: accuracy, speed, or memory efficiency.
 
----
-
-## 1. Evaluation Metrics
-
-### Why Metrics Matter
-
-**Accuracy alone is not enough.** Different metrics tell you different things about your model. The metric you optimize determines what your model gets good at.
-
-**Core principle:** Choose the metric that matches your problem's real-world cost structure.
+## 2. Evaluation Metrics
+Different metrics tell you different things about your model. The metric you optimize determines what your model gets good at.
 
 ### Classification Outcomes
 
 All classification metrics are based on **four fundamental outcomes**:
 
 ```
-                 PREDICTED
-                    │
-         ┌──────────┴──────────┐
-         │                     │
-      POSITIVE              NEGATIVE
-         │                     │
-    ┌────┴──────┐         ┌────┴──────┐
-    │           │         │           │
-   TRUE       FALSE       FALSE      TRUE
- POSITIVE    POSITIVE    NEGATIVE   NEGATIVE
-   (TP)       (FP)        (FN)       (TN)
+                              ACTUAL
+                       ┌─────────────┬─────────────┐
+                       │  Positive   │ Not Positive│
+          ┌────────────┼─────────────┼─────────────┤
+          │ Positive   │     TP      │     FP      │
+PREDICTED │            │ True        │ False       │
+          │            │ Positive    │ Positive    │
+          ├────────────┼─────────────┼─────────────┤
+          │Not Positive│    FN       │     TN      │
+          │            │ False       │ True        │
+          │            │ Negative    │ Negative    │
+          └────────────┴─────────────┴─────────────┘
+
 ```
 
 **What these mean:**
-- **TP:** Predicted positive, was actually positive ✓
-- **FP:** Predicted positive, was actually negative ✗
-- **FN:** Predicted negative, was actually positive ✗
-- **TN:** Predicted negative, was actually negative ✓
+- TP (True Positive): The model predicted positive, and the case was actually positive ✓
+- FP (False Positive): The model predicted positive, but the case was actually negative ✗
+*Example: The model incorrectly diagnoses a healthy plant as diseased.*
+- FN (False Negative): The model predicted negative, but the case was actually positive ✗
+*Example: The model fails to detect an infected plant.*
+- TN (True Negative): The model predicted negative, and the case was actually negative ✓
 
 ### Binary vs Multiclass
 
@@ -55,35 +46,35 @@ All classification metrics are based on **four fundamental outcomes**:
 - Examples: Spam/Not spam, Disease/Healthy, Fraud/Legitimate
 
 **Multiclass:** Multiple distinct classes (no inherent "positive")
-- Examples: Dog/Cat/Bird, Digits 0-9, Weather types
-- Calculate metrics per class (treating each as "positive" vs rest), then combine using macro/weighted/micro averaging
+- Examples: Dog/Cat/Bird, Digits 0-9
+- Calculate metrics per class (treating each as "positive" vs rest), then combine using macro / weighted / micro averaging
 
----
-
-## The Four Main Metrics
 
 ### Accuracy
-**Definition:** Percentage of all predictions that were correct
+**Definition:** Percentage of all predictions that were actually correct
 
-```
-Accuracy = (TP + TN) / (All predictions)
-```
+$$
+\begin{aligned}
+\text{Accuracy} &= \frac{\text{correct predictions}}{\text{total predictions}}
+\end{aligned}
+$$
 
-**When to use:** Balanced datasets only  
-**Avoid when:** Classes are imbalanced (e.g., 99% healthy, 1% sick)  
-**Problem:** A model that always predicts "healthy" gets 99% accuracy!
-
+- Goal: maximize, as close to 1 as possible.
+- Caution: accuracy can be misleading on **imbalanced datasets**, where one category dominates. A model can "cheat" by always predicting the majority class and still look highly accurate.
 ---
 
 ### Precision
-**Definition:** Of all positive predictions, how many were actually correct?
+**Definition:** How often the model's positive predictions are actually correct
 
-```
-Precision = TP / (TP + FP)
-            Correct positive predictions / All positive predictions
-```
+$$
+\begin{aligned}
+\text{Precision} &= \frac{TP}{TP + FP}
+\end{aligned}
+$$
 
 **Interpretation:** How trustworthy is the model when it says "yes"?
+
+- Goal: maximize, as close to 1 as possible.
 
 **Use when:** False positives are costly
 - Spam filter (delete legitimate email = bad)
@@ -92,18 +83,20 @@ Precision = TP / (TP + FP)
 
 **Example:** Model flags 100 emails as spam
 - 90 are actually spam → Precision = 90% (10 false alarms)
-
 ---
 
 ### Recall
-**Definition:** Of all actual positive cases, how many did the model catch?
+**Definition:** Measures how often the model identifies true positives from all positives
 
-```
-Recall = TP / (TP + FN)
-         True positives caught / All actual positives
-```
+$$
+\begin{aligned}
+\text{Recall} &= \frac{TP}{TP + FN}
+\end{aligned}
+$$
 
 **Interpretation:** Did we find all the positive cases?
+
+- Goal: maximize, as close to 1 as possible.
 
 **Use when:** False negatives are costly
 - Cancer screening (missed diagnosis = death)
@@ -116,13 +109,17 @@ Recall = TP / (TP + FN)
 ---
 
 ### F1 Score
-**Definition:** Harmonic mean of precision and recall
+**Definition:** Balances false positives and false negatives
 
-```
-F1 = 2 × (Precision × Recall) / (Precision + Recall)
-```
+$$
+\begin{aligned}
+\text{F1} &= 2 * \frac{Precision * Recall}{Precision + Recall}
+\end{aligned}
+$$
 
 **Interpretation:** Balances precision and recall into one score
+
+- Goal: maximize, as close to 1 as possible.
 
 **Use when:**
 - Imbalanced datasets (preferred over accuracy)
@@ -133,18 +130,6 @@ F1 = 2 × (Precision × Recall) / (Precision + Recall)
 - Precision 100%, Recall 50% → F1 ≈ 67% (not 75%)
 - Prevents overfitting to one metric
 
----
-
----
-
-## Quick Comparison
-
-| Metric | Best For | Avoid When |
-|--------|----------|-----------|
-| **Accuracy** | Balanced datasets | Classes imbalanced |
-| **Precision** | False positives costly | Must catch all cases |
-| **Recall** | False negatives costly | Too many false alarms unacceptable |
-| **F1 Score** | Imbalanced dataset | Single metric not important |
 
 ---
 
@@ -272,7 +257,6 @@ The metric is updated on each batch and computed at epoch end to evaluate overal
 
 ---
 
----
 
 ## Choosing Your Metric: Real-World Examples
 
@@ -307,14 +291,3 @@ Choose: F1 SCORE with weighted averaging
 Reason: Some classes have more training data than others
 Benefit: Accounts for imbalance, prevents over-optimizing popular classes
 ```
-
----
-
-## Summary
-
-✅ **Accuracy** – Simple, but only for balanced data  
-✅ **Precision** – When false positives hurt  
-✅ **Recall** – When false negatives hurt  
-✅ **F1 Score** – Balanced metric, works with imbalanced data  
-
-**The key:** Choose the metric that matches your problem's cost structure. Optimize for what matters in the real world.
