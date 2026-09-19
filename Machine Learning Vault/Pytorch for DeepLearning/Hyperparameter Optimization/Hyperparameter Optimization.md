@@ -49,7 +49,6 @@ PREDICTED │            │ True        │ False       │
 - Examples: Dog/Cat/Bird, Digits 0-9
 - Calculate metrics per class (treating each as "positive" vs rest), then combine using macro / weighted / micro averaging
 
----
 ### Accuracy
 ![[Accuracy#Definition]]
 ### Precision
@@ -60,6 +59,7 @@ PREDICTED │            │ True        │ False       │
 
 ### F1 Score
 ![[F1 Score#Definition]]
+
 
 
 ---
@@ -165,8 +165,10 @@ print(f"F1 Score: {f1.compute():.3f}")
 
 The metric is updated on each batch and computed at epoch end to evaluate overall performance.
 
-To see an example of which metric to choose in a real scenario see [[Real World Examples Metrics]]
+To see an example of which metric to choose in a real scenario see [[Real World Examples]]
 
+
+---
 # 3. Learning Rate Schedulers
 
 ### What is Optimization?
@@ -232,5 +234,44 @@ A fixed learning rate always forces a trade-off between speed and precision:
 
 ![[Learning Rate Schedulers]]
 
+
+---
 # 4. Tuning Hyperparameters
+
+Several hyperparameters can be used to enhance the performance of a model.
+
+```
+┌───────────────────────┬───────────────────────┬───────────────────────┐
+│     Architectural     │       Training        │    Regularization     │
+├───────────────────────┼───────────────────────┼───────────────────────┤
+│ • Number of Layers    │ • Learning Rate &     │ • Weight Decay        │
+│ • Neurons/Filters     │   Schedulers          │ • Dropout             │
+│ • Activations         │ • Optimizer           │ • Early Stopping      │
+│                       │ • Batch Size          │ • BatchNorm           │
+└───────────────────────┴───────────────────────┴───────────────────────┘
+```
+##### Architectural
+![[Architectural#Definition]]
+
+##### Training
+![[Training#Definition]]
+
+##### Regularization
+
+![[Regularization#Definition]]
+
+##### Where to start
+
+With so many hyperparameters, fine-tuning can feel overwhelming.
+
+1. **Establish a simple baseline model** — small, low-complexity, with minimal tuning. Even if it's not ideal, it offers a sanity check and a performance floor that more complex models should exceed. It also shows whether your dataset is even learnable in the first place.
+2. **Use PyTorch's default hyperparameters first.** Run a model with all defaults to gauge its performance — this provides a stable foundation for measuring future improvements.
+3. **Look for reference points in the literature.** Has anyone else tackled a similar problem? Reviewing prior work gives insight into effective architectures, learning rates, and regularization strategies. _Example: for a botanical classification app, researchers may have built CNNs for similar datasets — like insects. These published configurations are valuable starting points to replicate and iterate on._
+
+##### Iterating
+
+Even with baselines, hyperparameter tuning is inherently iterative; ==it's not about guessing the perfect combination right away==. Improve the model progressively through structured trial and error. Initially, focus on the hyperparameters most likely to have substantial impact — ==learning rate, batch size, and dropout== — and observe how each one influences your objective.
+
+# 5. Flexible Architecture Design
+
 
